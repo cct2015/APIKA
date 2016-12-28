@@ -1,15 +1,18 @@
 <template name="organizationProfile">
-  {{> organizationProfileHeader organization=organization }}
-  <div class="container">
-    <!--container-fluid addes padding-left -->
-    <div class="container-fluid row">
-      <label class="h3">
-        {{_ 'organizationProfile_bigText_apisCount'  }}
-      </label>
-      <label>
-        {{_ 'organizationProfile_smallText_apisCount' managedApisCount}}
-      </label>
+  {{# if Template.subscriptionsReady }}
+    {{> organizationProfileHeader organization=organization }}
+    <div class="container">
+      <div class="row">
+        <h3>
+          {{_ 'organizationProfile_bigText_apisCount'  }}
+        </h3>
+        <small>
+          {{_ 'organizationProfile_smallText_apisCount' managedApisCount}}
+        </small>
+      </div>
+      {{> catalogueGrid apis=managedApis }}
     </div>
-    {{> catalogueGrid apis=managedApis }}
-  </div>
+  {{ else }}
+    {{> spinner }}
+  {{/if}}
 </template>

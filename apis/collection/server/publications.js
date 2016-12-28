@@ -1,15 +1,14 @@
 import { Meteor } from 'meteor/meteor';
 import { Apis } from '../';
 
-Meteor.publish('allApiBackends', function () {
+Meteor.publish('allApiBackends', function (userId) {
   // Check if the user is signed in
   if (this.userId) {
     // Return all API Backends
     return Apis.find();
   }
-
-  // Return nothing
-  return null;
+  // Return only public apis
+  return Apis.find({ isPublic: true });
 });
 
 Meteor.publish('myManagedApis', function () {

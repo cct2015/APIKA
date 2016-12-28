@@ -14,7 +14,7 @@ Template.organizationProfile.onCreated(function () {
   instance.organizationSlug = FlowRouter.getParam('slug');
 
   // Subscribe to APIs
-  instance.subscribe('allApiBackends', Meteor.userId());
+  instance.subscribe('allApiBackends');
   // Subscribe to a single Organization
   instance.subscribe('singleOrganization', instance.organizationSlug);
 });
