@@ -122,37 +122,67 @@
     </div>
 
     <!-- Advanced settings -->
-    <div class="form-group col-md-12" id="advanced-settings">
-      <h3>
+    <div class="row" id="advanced-settings">
+      <h3 class="col-md-12">
         {{_ "proxyBackendForm_advancedSettings_title" }}
       </h3>
-      {{> afQuickField
-        name="apiUmbrella.settings.disable_api_key"
-        type="boolean-checkbox"
-      }}
-      <!-- help text -->
-      <p class="help-block">
-        {{_ "proxyBackendForm_disableApiKey_helpText" }}
-      </p>
+      <div class="form-group col-md-4 disable-api-key">
+        {{> afQuickField
+          name="apiUmbrella.settings.disable_api_key"
+          type="boolean-checkbox"
+        }}
+        <!-- help text -->
+        <p class="help-block">
+          {{_ "proxyBackendForm_disableApiKey_helpText" }}
+        </p>
+      </div>
 
       <!-- Rate limiting -->
-      <div class="form-group" id="rate-limiting">
-        <div class="col-md-3" id="rate-limit-mode">
-          {{> afQuickField
-            name="apiUmbrella.settings.rate_limit_mode"
-            firstOption=false
-          }}
-        </div>
-        {{#if afFieldValueIs
-          name="apiUmbrella.settings.rate_limit_mode"
-          value="custom"
-        }}
-          <div class="col-md-12" id="rate-limits">
-          {{> afQuickField
-            name="apiUmbrella.settings.rate_limits"
-          }}
+      <div class="col-md-12" id="rate-limiting">
+        <div class="row">
+          <div class="col-md-4" id="rate-limit-mode">
+            {{> afQuickField
+              name="apiUmbrella.settings.rate_limit_mode"
+              firstOption=false
+            }}
           </div>
-        {{/if }}
+          {{#if afFieldValueIs
+            name="apiUmbrella.settings.rate_limit_mode"
+            value="custom"
+          }}
+            <div class="col-md-12" id="rate-limits">
+            {{> afQuickField
+              name="apiUmbrella.settings.rate_limits"
+            }}
+            </div>
+          {{/if }}
+        </div>
+      </div>
+      <div class="col-md-12">
+        <!-- Append query string -->
+        {{> afQuickField
+          name='apiUmbrella.append_query_string'
+          id='append-query-string'
+        }}
+        <!-- validation messages -->
+        {{# if afFieldIsInvalid name='apiUmbrella.append_query_string' }}
+          <p class="text-danger">
+            {{{ afFieldMessage name='apiUmbrella.append_query_string' }}}
+          </p>
+        {{/ if }}
+      </div>
+      <div class="col-md-12">
+        <!-- Headers string -->
+        {{> afQuickField
+          name='apiUmbrella.headers_string'
+          id='headers-string'
+        }}
+        <!-- validation messages -->
+        {{# if afFieldIsInvalid name='apiUmbrella.headers_string' }}
+          <p class="text-danger">
+            {{{ afFieldMessage name='apiUmbrella.headers_string' }}}
+          </p>
+        {{/ if }}
       </div>
     </div>
     {{/ if }}

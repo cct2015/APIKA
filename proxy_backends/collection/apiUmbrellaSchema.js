@@ -127,6 +127,16 @@ const ApiUmbrellaSchema = new SimpleSchema({
     type: SettingsSchema,
     optional: true,
   },
+  append_query_string: {
+    type: String,
+    optional: true,
+    label: 'Append Query String Parameters'
+  },
+  headers_string: {
+    type: String,
+    optional: true,
+    label: 'Set Request Headers'
+  },
 });
 
 // Internationalize API Umbrella schema texts
