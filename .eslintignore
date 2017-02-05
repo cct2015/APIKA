@@ -70,14 +70,6 @@ documentation/server/methods/files.js
 documentation/server/methods/swagger.js
 documentation/server/publications.js
 elasticsearch/server/methods.js
-feedback_votes/collection/index.js
-feedback/client/form/autoform.js
-feedback/client/item/item.js
-feedback/client/list/list.js
-feedback/collection/index.js
-feedback/collection/schema.js
-feedback/collection/server/publications.js
-feedback/server/methods.js
 home/client/body/homeBody.js
 home/client/contact/autoform.js
 home/client/footer/homeFooter.js
